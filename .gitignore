@@ -1,0 +1,14 @@
+# local projects contain personal click coordinates
+projects/
+
+# build / IDE
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# logs and OS junk
+*.log
+.DS_Store
+Thumbs.db

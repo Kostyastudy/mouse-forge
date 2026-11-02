@@ -9,14 +9,14 @@ using System.Text;
 using System.Windows.Forms;
 using System.Web.Script.Serialization;
 
-namespace MouseStudio
+namespace MouseForge
 {
     internal static class Program
     {
         [STAThread]
         private static void Main(string[] args)
         {
-            string errorLog = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MouseStudio-error.log");
+            string errorLog = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MouseForge-error.log");
 
             try
             {
@@ -73,7 +73,7 @@ namespace MouseStudio
             {
                 MessageBox.Show(
                     ex == null ? "Unknown error" : ex.Message,
-                    "Mouse Studio 启动失败",
+                    "MouseForge 启动失败",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -665,7 +665,7 @@ namespace MouseStudio
     {
         public OverlayForm(string text)
         {
-            Text = "Mouse Studio";
+            Text = "MouseForge";
             FormBorderStyle = FormBorderStyle.None;
             StartPosition = FormStartPosition.Manual;
             Size = new Size(640, 64);

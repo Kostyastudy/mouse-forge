@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MouseStudio
+namespace MouseForge
 {
     internal sealed class MainForm : Form
     {
@@ -111,7 +111,7 @@ namespace MouseStudio
             project.Name = "默认项目";
             project.FilePath = Path.Combine(projectsDir, "默认项目.json");
 
-            Text = "Mouse Studio - 鼠标脚本工坊";
+            Text = "MouseForge - 鼠标脚本工坊";
             StartPosition = FormStartPosition.CenterScreen;
             Font = new Font("Segoe UI", 9F);
             AutoScaleMode = AutoScaleMode.None;
@@ -281,7 +281,7 @@ namespace MouseStudio
             titles.BackColor = HeaderBg;
 
             Label title = new Label();
-            title.Text = "Mouse Studio";
+            title.Text = "MouseForge";
             title.AutoSize = true;
             title.Location = new Point(0, 2);
             title.ForeColor = Color.White;
@@ -1064,7 +1064,7 @@ namespace MouseStudio
             catch (Exception ex)
             {
                 loadingProject = false;
-                MessageBox.Show(this, "打开项目失败：\r\n" + ex.Message, "Mouse Studio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "打开项目失败：\r\n" + ex.Message, "MouseForge", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log("打开项目失败：" + ex.Message);
             }
         }
@@ -1135,7 +1135,7 @@ namespace MouseStudio
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, "保存项目失败：\r\n" + ex.Message, "Mouse Studio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "保存项目失败：\r\n" + ex.Message, "MouseForge", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log("保存失败：" + ex.Message);
                 return false;
             }
@@ -1165,7 +1165,7 @@ namespace MouseStudio
 
             if (File.Exists(path))
             {
-                MessageBox.Show(this, "同名项目已经存在。", "Mouse Studio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "同名项目已经存在。", "MouseForge", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -1189,7 +1189,7 @@ namespace MouseStudio
             DialogResult result = MessageBox.Show(
                 this,
                 "确定删除项目“" + project.Name + "”吗？\r\n项目文件会被删除。",
-                "Mouse Studio",
+                "MouseForge",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
             );
@@ -1223,7 +1223,7 @@ namespace MouseStudio
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, "删除项目失败：\r\n" + ex.Message, "Mouse Studio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "删除项目失败：\r\n" + ex.Message, "MouseForge", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1299,7 +1299,7 @@ namespace MouseStudio
             DialogResult result = MessageBox.Show(
                 this,
                 "当前项目有未保存的修改，要保存吗？",
-                "Mouse Studio",
+                "MouseForge",
                 MessageBoxButtons.YesNoCancel,
                 MessageBoxIcon.Question
             );
@@ -1341,7 +1341,7 @@ namespace MouseStudio
                 suffix += "  [播放中]";
             }
 
-            Text = "Mouse Studio - " + (project != null ? project.Name : "未命名项目") + suffix;
+            Text = "MouseForge - " + (project != null ? project.Name : "未命名项目") + suffix;
         }
 
         private void Log(string message)
@@ -1956,7 +1956,7 @@ namespace MouseStudio
                 DialogResult result = MessageBox.Show(
                     this,
                     "开始录制会清空当前项目的步骤，继续吗？",
-                    "Mouse Studio",
+                    "MouseForge",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
                 );
@@ -2004,7 +2004,7 @@ namespace MouseStudio
 
             if (!mouseHook.Install())
             {
-                MessageBox.Show(this, "无法安装鼠标监听，请尝试以管理员身份运行。", "Mouse Studio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "无法安装鼠标监听，请尝试以管理员身份运行。", "MouseForge", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 mouseHook.Dispose();
                 mouseHook = null;
                 return false;
@@ -2116,13 +2116,13 @@ namespace MouseStudio
 
             if (step == null)
             {
-                MessageBox.Show(this, "请先在步骤列表中选择一个点击或移动步骤。", "Mouse Studio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, "请先在步骤列表中选择一个点击或移动步骤。", "MouseForge", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             if (step.Type == "wait")
             {
-                MessageBox.Show(this, "等待步骤没有坐标。", "Mouse Studio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, "等待步骤没有坐标。", "MouseForge", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -2255,7 +2255,7 @@ namespace MouseStudio
 
             if (project.Steps.Count == 0)
             {
-                MessageBox.Show(this, "当前项目还没有步骤。先录制或添加步骤。", "Mouse Studio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, "当前项目还没有步骤。先录制或添加步骤。", "MouseForge", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 

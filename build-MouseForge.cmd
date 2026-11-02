@@ -7,11 +7,11 @@ if not exist "%CSC%" (
     pause
     exit /b 1
 )
-"%CSC%" /nologo /target:winexe /codepage:65001 /out:"%~dp0MouseStudio.exe" /r:System.dll /r:System.Core.dll /r:System.Windows.Forms.dll /r:System.Drawing.dll /r:System.Web.Extensions.dll "%~dp0MouseStudio.cs" "%~dp0MainForm.cs"
+"%CSC%" /nologo /target:winexe /codepage:65001 /out:"%~dp0MouseForge.exe" /r:System.dll /r:System.Core.dll /r:System.Windows.Forms.dll /r:System.Drawing.dll /r:System.Web.Extensions.dll "%~dp0MouseForge.cs" "%~dp0MainForm.cs"
 if errorlevel 1 (
     echo Build failed.
     pause
     exit /b 1
 )
-echo Build succeeded: %~dp0MouseStudio.exe
+echo Build succeeded: %~dp0MouseForge.exe
 pause

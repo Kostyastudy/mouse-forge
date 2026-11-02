@@ -1,4 +1,4 @@
-# Mouse Studio
+# MouseForge
 
 Windows 上的**鼠标脚本录制 + 可视化编辑 + 循环播放**小工具。
 
@@ -7,14 +7,14 @@ Windows 上的**鼠标脚本录制 + 可视化编辑 + 循环播放**小工具�
 ## 下载即用
 
 1. 下载或克隆本仓库。
-2. 双击 `MouseStudio.exe` 或 `Start-MouseStudio.cmd`。
+2. 双击 `MouseForge.exe` 或 `Start-MouseForge.cmd`。
 3. 第一次启动会自动创建 `projects\默认项目.json`。
 
 不需要安装 .NET SDK，Windows 10/11 自带 .NET Framework 4.x 即可运行。
 
 ## Windows SmartScreen 提示
 
-`MouseStudio.exe` 没有购买受信任的代码签名证书，所以第一次运行时 Windows 可能提示：
+`MouseForge.exe` 没有购买受信任的代码签名证书，所以第一次运行时 Windows 可能提示：
 
 > Windows 已保护你的电脑
 > Microsoft Defender SmartScreen 阻止了无法识别的应用启动。
@@ -27,7 +27,7 @@ Windows 上的**鼠标脚本录制 + 可视化编辑 + 循环播放**小工具�
 如果文件被标记为来自网络，也可以右键 exe → 属性 → 勾选 **“解除锁定”** → 确定，或运行：
 
 ```powershell
-Unblock-File .\MouseStudio.exe
+Unblock-File .\MouseForge.exe
 ```
 
 请不要为了这个提示关闭整个系统的 SmartScreen。
@@ -36,7 +36,7 @@ Unblock-File .\MouseStudio.exe
 
 - 程序不联网，不上传任何数据。
 - 只读写程序目录下的 `projects` 文件夹。
-- 完整源码在 `MouseStudio.cs` 和 `MainForm.cs`，可以自己用 `build-MouseStudio.cmd` 重新编译。
+- 完整源码在 `MouseForge.cs` 和 `MainForm.cs`，可以自己用 `build-MouseForge.cmd` 重新编译。
 - 发布包附带 `SHA256.txt`，可用于校验 exe 是否完整。
 
 ## 功能
@@ -65,7 +65,7 @@ Unblock-File .\MouseStudio.exe
 
 ## 快速上手
 
-1. 双击 `Start-MouseStudio.cmd`。
+1. 双击 `Start-MouseForge.cmd`。
 2. 点 **● 录制 (F9)**。
 3. 在目标窗口里点击几次。
 4. 再按 `F9` 停止，点 **保存**。
@@ -103,25 +103,25 @@ Unblock-File .\MouseStudio.exe
 
 源码是纯 C# WinForms，不需要 Visual Studio。
 
-双击 `build-MouseStudio.cmd`，它会调用 Windows 自带的 `csc.exe` 编译出 `MouseStudio.exe`。
+双击 `build-MouseForge.cmd`，它会调用 Windows 自带的 `csc.exe` 编译出 `MouseForge.exe`。
 
 手动编译命令：
 
 ```bat
 %WINDIR%\Microsoft.NET\Framework64\v4.0.30319\csc.exe ^
   /target:winexe /codepage:65001 ^
-  /out:MouseStudio.exe ^
+  /out:MouseForge.exe ^
   /r:System.dll /r:System.Core.dll ^
   /r:System.Windows.Forms.dll /r:System.Drawing.dll ^
   /r:System.Web.Extensions.dll ^
-  MouseStudio.cs MainForm.cs
+  MouseForge.cs MainForm.cs
 ```
 
 ## 已知限制
 
 - v1 只支持鼠标动作和等待，不支持键盘动作。
 - 播放按屏幕坐标点击，**不会自动查找或激活窗口**；目标窗口需要保持可见/在前台。
-- 如果目标程序以管理员权限运行，Windows 会拦截普通权限程序发出的模拟点击和全局热键。请右键以管理员身份运行 Mouse Studio。
+- 如果目标程序以管理员权限运行，Windows 会拦截普通权限程序发出的模拟点击和全局热键。请右键以管理员身份运行 MouseForge。
 - 不支持条件、随机、每步独立循环等高级逻辑。
 - 高 DPI 下程序会按系统缩放放大界面；如果系统缩放特别大，窗口可能接近全屏。
 
